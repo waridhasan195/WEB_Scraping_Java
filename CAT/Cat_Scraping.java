@@ -1,5 +1,7 @@
 package CAT;
 
+
+import javax.lang.model.util.Elements;
 import org.jsoup.Jsoup;
 
 // import javax.print.DocPrintJob;
@@ -22,6 +24,14 @@ public class Cat_Scraping {
             Document doc = Jsoup.connect(url).get();
             String title = doc.title();
             System.out.println("Title: "+title);
+            System.out.println("----------------------");
+            System.out.println("Doc: "+doc);
+
+            Elements Paragraph = (Elements) doc.getElementsByTag("p");
+
+            for(Elements E: Paragraph){
+                System.out.println(E);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
